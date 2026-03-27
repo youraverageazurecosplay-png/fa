@@ -1,0 +1,13 @@
+cat > ~/uninstall_vault.sh << 'EOF'
+#!/bin/zsh
+read "confirm?⚠️ This will delete the vault and ALL hidden files. Continue? (y/n): "
+if [[ "$confirm" == "y" ]]; then
+    rm -rf ~/.vault_system
+    rm -f ~/vault.sh
+    rm -f ~/install_vault.sh
+    echo "[!] Vault destroyed."
+else
+    echo "Aborted."
+fi
+EOF
+chmod +x ~/uninstall_vault.sh
